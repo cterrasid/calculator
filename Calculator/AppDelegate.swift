@@ -21,6 +21,7 @@
 // [ ] Agregar paréntesis
 // [ ] Agregar opción de borrar dígitos
 // [ ] Agregar opción de eliminar operación completa
+// [ ] Github
 
 import UIKit
 
