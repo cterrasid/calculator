@@ -9,12 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //Creo una referencia de los enums: establezco el estado inicial de las cosas
+    // MARK: Properties
     var currentOperation: Operator = .nothing
     var calcState: CalculationState = .enteringNum
     
     @IBOutlet weak var prooof: UITextView!
-    //Almacenan los valores que introduzca en la calculadora
     var firstValue: String = ""
     var operation: [String] = []
     
@@ -24,7 +23,6 @@ class ViewController: UIViewController {
     // MARK: Actions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func createOperation(_ element: String) {
@@ -45,11 +43,9 @@ class ViewController: UIViewController {
             }
             calcState = .enteringNum
             resultLabel.text = number
-            // este number es el segundo valor de la operación
             createOperation(number)
         } else if calcState == .enteringNum {
             resultLabel.text = "\(resultLabel.text!)\(number)"
-            // aqui se crea el primer valor de la operación
             createOperation(resultLabel.text!)
         }
     }
@@ -84,9 +80,7 @@ class ViewController: UIViewController {
     
     @IBAction func equalsClicked(_ sender: UIButton) {
         calculateSum()
-        //Reset al acumulador de operaciones
         operation = []
-        // Aqui sigue siendo el primer valor
     }
     
     func calculateSum () {
@@ -107,8 +101,6 @@ class ViewController: UIViewController {
         
         resultLabel.text = result
         calcState = .newNumStarted
-//        print(firstValue + operation.joined())
-        //        En esta fase, el firstValue es realmente el primer valor de la operación; incluso, es el resultado de la operacion que se convierte en el firstValue de otras operaciones
     }
     
 }
