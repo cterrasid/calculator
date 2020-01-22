@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     var currentOperation: Operator = .nothing
     var calcState: CalculationState = .enteringNum
     
-    @IBOutlet weak var prooof: UITextView!
+
     var firstValue: String = ""
     var operation: [String] = []
     
     @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var operationLabel: UILabel!
+    @IBOutlet weak var operationTextView: UITextView!
     
     // MARK: Actions
     override func viewDidLoad() {
@@ -27,7 +27,12 @@ class ViewController: UIViewController {
     
     func createOperation(_ element: String) {
         operation.append(element)
-        operationLabel.text = operation.joined()
+        
+        if firstValue == "" {
+            operationTextView.text = operation.joined()
+        } else {
+            operationTextView.text = firstValue + operation.joined()
+        }
     }
     
     @IBAction func numberClicked(_ sender: UIButton) {
@@ -43,11 +48,14 @@ class ViewController: UIViewController {
             }
             calcState = .enteringNum
             resultLabel.text = number
-            createOperation(number)
         } else if calcState == .enteringNum {
             resultLabel.text = "\(resultLabel.text!)\(number)"
-            createOperation(resultLabel.text!)
         }
+        
+        if firstValue != "" {
+            createOperation(number)
+        }
+        
     }
     
     @IBAction func operatorClicked(_ sender: UIButton) {
@@ -76,6 +84,7 @@ class ViewController: UIViewController {
         default:
             return
         }
+        
     }
     
     @IBAction func equalsClicked(_ sender: UIButton) {

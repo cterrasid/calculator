@@ -16,12 +16,12 @@
 // 7. Realizo la lógica de equalsClicked. Aseguro que si no tengo valores, retorna nada. Realizo una lógica para cada operación en la que convierto los valores de String a Double para poder realizar operaciones con ellos
 
 //TO-DO
-// [ ] Solucionar el bug de pintado de datos (se duplica el firstValue)
+// [X] Solucionar el bug de pintado de datos (se duplica el firstValue)
 // [ ] Agregar funcionalidad de decimales
 // [ ] Agregar paréntesis
 // [ ] Agregar opción de borrar dígitos
 // [ ] Agregar opción de eliminar operación completa
-// [ ] Github
+// [X] Github
 
 import UIKit
 
