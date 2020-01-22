@@ -112,5 +112,12 @@ class ViewController: UIViewController {
         calcState = .newNumStarted
     }
     
+    @IBAction func deleteData(_ sender: Any) {
+        if resultLabel.text != "" {
+            resultLabel.text = ""
+            operationTextView.text! = ""
+            firstValue = ""
+        }
+    }
 }
 
